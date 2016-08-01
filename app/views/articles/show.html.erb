@@ -1,4 +1,11 @@
 <div class='container'>
+    <h3>Created by: </h3>
+    <%= @article.user.username %>
+    
     <h2><%= @article.title %></h2>
-    <%= @article.body %>
+    <%= @article.body %><br><br>
+    
+    <%= link_to "Edit", edit_article_path %> |
+    <%= link_to "Back", articles_path %>
 </div>
+
