@@ -1,11 +1,75 @@
-<div class='container'>
-    <h3>Created by: </h3>
-    <%= @article.user.username %>
-    
-    <h2><%= @article.title %></h2>
-    <%= @article.body %><br><br>
-    
-    <%= link_to "Edit", edit_article_path %> |
-    <%= link_to "Back", articles_path %>
+<div class="row">
+
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+
+        <!-- Blog Post -->
+
+        <!-- Title -->
+        <h1 style="font-size: 62.5px;">  
+         <%= @article.title %>
+        </h1>
+
+        <!-- Author -->
+        <p class="lead">
+          <%= @article.user.username %>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p><span class="glyphicon glyphicon-time"></span> Was Posted: 
+     
+
+        <hr>
+
+        <!-- Preview Image -->
+        
+
+        <!-- Post Content -->
+          <%= @article.body %>
+       
+        <hr>
+
+        <!-- Blog Comments -->
+        <%= render @article.comments %>
+        <!-- Comments Form -->
+       
+        <%= render 'comments/form' %>  
+        <div class="well">
+          
+        </div>
+
+        <hr>
+
+        <!-- Posted Comments -->
+
+        <!-- Comment -->
+
+
+
+    </div>
+
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+        <!-- Blog Search Well -->
+        
+
+        <!-- Blog Categories Well -->
+        
+
+        <!-- Side Widget Well -->
+        <div class="well">
+          <h4></h4>
+  
+        </div>
+
+    </div>
+
 </div>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
 

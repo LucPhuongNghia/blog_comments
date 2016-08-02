@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 4)
+    @last3 = Article.last(3)
   end
   
   def show

@@ -28,6 +28,8 @@ gem 'bootstrap-sass-extras', '~> 0.0.7'
 gem 'font-awesome-sass', '~> 4.6'
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.2'
+gem 'will_paginate', '~> 3.1'
+gem 'will_paginate-bootstrap', '~> 1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

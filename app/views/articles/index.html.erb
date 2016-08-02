@@ -1,23 +1,41 @@
-<h1>All Articles</h1>
+<div class='row'>
+    <div class='col-md-9'>
+        <h1>All Articles</h1>
 
-<table class='table table-striped'>
-    <thead>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Body</th>
-        <th colspan='3'></th>
-    </thead>
+        <table class='table table-striped'>
+            <thead>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Body</th>
+                <th colspan='3'></th>
+            </thead>
+            
+            <tbody>
+                <% @articles.each do |article| %>
+                    <tr>
+                        <td><%= article.title %></td>
+                        <td><%= article.user.username %></td>
+                        <td><%= article.body %></td>
+                        <td><%= link_to "Show", article_path(article) %></td>
+                        <td><%= link_to "Edit", edit_article_path(article) %></td>
+                        <td><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
     
-    <tbody>
-        <% @articles.each do |article| %>
-            <tr>
-                <td><%= article.title %></td>
-                <td><%= article.user.username %></td>
-                <td><%= article.body %></td>
-                <td><%= link_to "Show", article_path(article) %></td>
-                <td><%= link_to "Edit", edit_article_path(article) %></td>
-                <td><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+    <div class='col-md-3'>
+        <div class="well">
+           <h4>Recent Articles</h4>
+            <% @last3.each do |article| %>
+              Created by <%= article.user.username %><br>
+              <strong><%= link_to article.title, article %></strong>
+              <p><%= truncate(article.body) %></p>
+            <% end %>
+        </div>
+    </div>
+    
+</div>
+
+<%= will_paginate @articles %>
