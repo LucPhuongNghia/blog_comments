@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
 
   devise_for :users, controllers: {registrations: 'registrations'}
-  
+  resources :contacts
   resources :articles do
     resources :comments
   end
